@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 public class Level implements Serializable {
 @Id @GeneratedValue
 private Long levelID;
+
 private String levelNAME;
 //*****************************************************relationshipe****************************************************************//
 @OneToMany
@@ -20,10 +21,10 @@ private List<Member> members;
 public Level() {
 	super();
 }
-public Level(String levelNAME, List<Member> members) {
+public Level(String levelNAME) {
 	super();
 	this.levelNAME = levelNAME;
-	this.members = members;
+	
 }
 public Long getLevelID() {
 	return levelID;

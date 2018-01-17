@@ -22,10 +22,11 @@ public class Country implements Serializable {
 	public Country() {
 		super();
 	}
-	public Country(String countryNALME, List<Member> members) {
+	
+	public Country(String countryNALME) {
 		super();
 		this.countryNALME = countryNALME;
-		this.members = members;
+		
 	}
 	public Long getCountryID() {
 		return countryID;
