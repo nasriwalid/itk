@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Formation implements Serializable {
 	@Id @GeneratedValue 
 	private Long formationID;
+	//forget th relationship with 
 	private String formationNAME;
 
 }
