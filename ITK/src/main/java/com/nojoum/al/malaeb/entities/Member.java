@@ -37,13 +37,15 @@ private Date ppDate;
 private Country country;
 @ManyToOne
 private Level level;
+@ManyToOne
+private Formation formation;
 //******************************************************end relationshipe*********************************************//
 public Member() {
 	super();
 }
 public Member(String memberFNAME, String memberSNAME, String memberEMAIL, String memberPWD, String memberADRESSE,
 		String memberCIN, String memberPP, String memberPHOTO, String cinPHOTO, String ppPHOTO, Date memberBEARTH,
-		Date cinDATE, Date ppDate, Country country, Level level) {
+		Date cinDATE, Date ppDate, Country country, Level level,Formation formation) {
 	super();
 	this.memberFNAME = memberFNAME;
 	this.memberSNAME = memberSNAME;
@@ -60,6 +62,7 @@ public Member(String memberFNAME, String memberSNAME, String memberEMAIL, String
 	this.ppDate = ppDate;
 	this.country = country;
 	this.level = level;
+	this.formation=formation;
 }
 public Long getMemberID() {
 	return memberID;
@@ -156,6 +159,12 @@ public Level getLevel() {
 }
 public void setLevel(Level level) {
 	this.level = level;
+}
+public Formation getFormation() {
+	return formation;
+}
+public void setFormation(Formation formation) {
+	this.formation = formation;
 }
 
          

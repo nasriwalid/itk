@@ -6,8 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.nojoum.al.malaeb.dao.ICountry;
+import com.nojoum.al.malaeb.dao.IFormation;
 import com.nojoum.al.malaeb.dao.ILevel;
 import com.nojoum.al.malaeb.entities.Country;
+import com.nojoum.al.malaeb.entities.Formation;
 import com.nojoum.al.malaeb.entities.Level;
 
 @SpringBootApplication
@@ -261,6 +263,12 @@ public class ItkApplication {
 	levelss.save(new Level("doctorant"));
 	levelss.save(new Level("license"));
 	
+	//adding formation 
+	IFormation formationet=ctx.getBean(IFormation.class);
+	formationet.save(new Formation("Athlète"));
+	formationet.save(new Formation("Basketball"));
+	formationet.save(new Formation("Football"));
+	formationet.save(new Formation("Handball"));
 	
 	}
 }

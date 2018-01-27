@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.nojoum.al.malaeb.dao.ICountry;
+import com.nojoum.al.malaeb.dao.IFormation;
 import com.nojoum.al.malaeb.dao.ILevel;
 import com.nojoum.al.malaeb.dao.IMember;
 import com.nojoum.al.malaeb.entities.Country;
+import com.nojoum.al.malaeb.entities.Formation;
 import com.nojoum.al.malaeb.entities.Level;
 import com.nojoum.al.malaeb.entities.Member;
 
@@ -25,6 +27,7 @@ public class Controleur {
 	private ILevel levels;
 	@Autowired
 	private IMember regmember;
+	@Autowired IFormation formationrep;
 	
 	
 	@GetMapping(value="/registration")
@@ -33,9 +36,12 @@ public class Controleur {
 	  {
 		List<Country> countrys= countries.findAll();
 		List<Level> levelss=levels.findAll();
+		List<Formation> formations= formationrep.findAll();
 		model.addAttribute("levelss",levelss);
 		model.addAttribute("countys", countrys);
+		model.addAttribute("formations", formations);
 		Member memberr=new Member();
+		model.addAttribute("memberr",memberr );
 		
 		return "Form" ;
 	  }
