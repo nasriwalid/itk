@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.nojoum.al.malaeb.dao.ICountry;
@@ -41,16 +42,16 @@ public class Controleur {
 		model.addAttribute("countys", countrys);
 		model.addAttribute("formations", formations);
 		Member memberr=new Member();
-		model.addAttribute("memberr",memberr );
+		model.addAttribute("memberr",memberr);
 		
 		return "Form" ;
 	  }
 	
 	@PostMapping(value="/save")
-	   public String submitForm(@Valid Member memberr)
+	   public String submitForm(@Valid  @ModelAttribute("memberr") Member memberr)
 	   {
 		regmember.save(memberr);
-		return "form";
+		return "Form";
 	   }
 	
 	

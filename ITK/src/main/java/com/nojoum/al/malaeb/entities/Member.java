@@ -25,11 +25,11 @@ private String memberPP;
 private String memberPHOTO;
 private String cinPHOTO;
 private String ppPHOTO;
-@DateTimeFormat(pattern ="YYYY-mm-jj")
+@DateTimeFormat(pattern="yyyy-MM-dd")
 private Date memberBEARTH;
-@DateTimeFormat(pattern="YYYY-mm-jj")
+@DateTimeFormat(pattern="YYYY-mm-dd")
 private Date cinDATE;
-@DateTimeFormat(pattern="YYYY-mm-jj")
+@DateTimeFormat(pattern="YYYY-mm-dd")
 private Date ppDate;
 
 //******************************************************Relationshipe***************************************************//
@@ -64,6 +64,40 @@ public Member(String memberFNAME, String memberSNAME, String memberEMAIL, String
 	this.level = level;
 	this.formation=formation;
 }
+
+
+public Member(String memberFNAME, String memberSNAME, String memberEMAIL, String memberPWD, Country country,
+		Level level, Formation formation) {
+	super();
+	this.memberFNAME = memberFNAME;
+	this.memberSNAME = memberSNAME;
+	this.memberEMAIL = memberEMAIL;
+	this.memberPWD = memberPWD;
+	this.country = country;
+	this.level = level;
+	this.formation = formation;
+}
+
+
+
+
+public Member(String memberFNAME, String memberSNAME, String memberEMAIL, String memberPWD, String memberADRESSE,
+		String memberPHOTO, Date memberBEARTH, Country country, Level level, Formation formation) {
+	super();
+	this.memberFNAME = memberFNAME;
+	this.memberSNAME = memberSNAME;
+	this.memberEMAIL = memberEMAIL;
+	this.memberPWD = memberPWD;
+	this.memberADRESSE = memberADRESSE;
+	this.memberPHOTO = memberPHOTO;
+	this.memberBEARTH = memberBEARTH;
+	this.country = country;
+	this.level = level;
+	this.formation = formation;
+}
+
+
+
 public Long getMemberID() {
 	return memberID;
 }
