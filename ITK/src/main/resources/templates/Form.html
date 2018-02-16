@@ -9,7 +9,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bootstrap Modal Registration Form Template</title>
+<title>نجوم الملاعب للتسويق والاستثمار الرياضي</title>
 
 <!-- CSS -->
 <link rel="stylesheet"
@@ -66,7 +66,7 @@
 			</div>
 
 			<div class="modal-body">
-				<form role="form" th:action="@{/save}" method="post"
+				<form enctype="multipart/form-data" th:action="@{/save}" method="post"
 					th:object="${memberr}">
 					<!-- Type de formation -->
 					<div class="form-group">
@@ -90,6 +90,7 @@
 							th:field="*{memberFNAME}" type="text" name="form-first-name"
 							placeholder="Prénom..." class="form-first-name form-control"
 							id="form-first-name" />
+							<span class="text-danger" th:errors="*{memberFNAME}"></span>
 					</div>
 					<!-- Nom de père -->
 					<!-- 							<div class="form-group"> -->
@@ -101,20 +102,20 @@
 						<label class="sr-only" for="form-last-name">Nom</label> <input
 							th:field="*{memberSNAME}" type="text" name="form-last-name"
 							placeholder="Nom..." class="form-last-name form-control"
-							id="form-last-name" />
+							id="form-last-name" /> <span class="text-danger" th:errors="*{memberSNAME}"></span>
 					</div>
 					<!-- Nom -->
 					<div class="form-group">
 						<label for="form-pp">Photo de Profile</label> <input
-							th:field="*{memberPHOTO}" type="file" accept=".png, .jpg, .jpeg"
-							name="form-pp" placeholder="photo..."
-							class="form-pp form-control" id="form-pp" />
+							
+							 type="file" accept=".png, .jpg, .jpeg"
+							name="picture" placeholder="photo..."
+							class="form-pp form-control" /><span class="text-danger" ></span>
 					</div>
 					<!-- Date de naissance -->
 					<div class="form-group">
 						<label class="sr-only" for="form-dateN">Date de naissance</label>
-						<input  type="text" name="form-dateN"
-						    th:field="*{memberBEARTH}"
+						<input type="text" name="form-dateN" th:field="*{memberBEARTH}"
 							onfocus="(this.type='date')" onblur="(this.type='text')"
 							placeholder="Date de Naissance" class="form-dateN form-control"
 							id="form-dateN" />
@@ -124,7 +125,7 @@
 						<label class="sr-only" for="form-email">Email</label> <input
 							th:field="*{memberEMAIL}" type="email" name="form-last-name"
 							placeholder="E-mail..." class="form-email form-control"
-							id="form-email" />
+							id="form-email" /> <span th:errors="*{memberEMAIL}"></span>
 					</div>
 					<!-- password -->
 					<div class="form-group">
@@ -166,8 +167,9 @@
 								</select></td>
 							</tr>
 						</table>
-						<input th:field="*{memberADRESSE}" type="text" name="form-adr-etr" placeholder="Adresse..."
-							class="form-adr-etr form-control" id="form-adr-etr" />
+						<input th:field="*{memberADRESSE}" type="text" name="form-adr-etr"
+							placeholder="Adresse..." class="form-adr-etr form-control"
+							id="form-adr-etr" />
 					</div>
 					<!-- 							<div id="form-tn-hide" class="form-group"> -->
 					<!-- 								<input type="text" name="form-adr-tn" placeholder="Adresse..." class="form-adr-tn form-control" id="form-adr-tn"/> -->
@@ -187,35 +189,28 @@
 						</table>
 					</div>
 					<div class="form-group form-cin">
-						<label class="sr-only" for="form-cin">CIN</label> <input 
-						    th:field="*{memberCIN}"
-							type="number" name="form-cin" placeholder="Numéro de CIN..."
-							class="form-cin form-control" id="form-cin" /> <input 
-							th:field="*{cinDATE}" 
+						<label class="sr-only" for="form-cin">CIN</label> <input
+							th:field="*{memberCIN}" type="number" name="form-cin"
+							placeholder="Numéro de CIN..." class="form-cin form-control"
+							id="form-cin" /> <input th:field="*{cinDATE}"
 							onfocus="(this.type='date')" onblur="(this.type='text')"
 							name="form-date-cin" placeholder="date de delivence cin..."
-							class="form-date-cin form-control" id="form-date-cin" /> Photo de
-						CIN :<input 
-						th:field="*{cinPHOTO}"
-						type="file" accept=".png, .jpg, .jpeg"
-							name="form-file-cin" class="form-cin form-control"
-							id="form-file-cin" />
+							class="form-date-cin form-control" id="form-date-cin" /> Photo
+						de CIN :<input  type="file"
+							accept=".png, .jpg, .jpeg" name="form-file-cin"
+							class="form-cin form-control" id="form-file-cin" />
 					</div>
 					<div class="form-group form-pp">
 						<label class="sr-only" for="form-pp">PASSPORT</label> <input
-						th:field="*{memberPP}"
-							type="number" name="form-pp" placeholder="Numéro de Passport..."
-							class="form-pp form-control" id="form-pp" /> <input 
-							th:field="*{ppDate}"
-							
+							th:field="*{memberPP}" type="number" name="form-pp"
+							placeholder="Numéro de Passport..." class="form-pp form-control"
+							id="form-pp" /> <input th:field="*{ppDate}"
 							onfocus="(this.type='date')" onblur="(this.type='text')"
 							name="form-date-pp" placeholder="date de delivence passport..."
 							class="form-date-pp form-control" id="form-date-pp" /> Photo de
-						Passport :<input
-						th:field="*{ppPHOTO}"
-						 type="file" accept=".png, .jpg, .jpeg"
-							name="form-file-pp" class="form-pp form-control"
-							id="form-file-pp" />
+						Passport :<input  type="file"
+							accept=".png, .jpg, .jpeg" name="form-file-pp"
+							class="form-pp form-control" id="form-file-pp" />
 					</div>
 
 					<!-- Niveau Universitaire -->

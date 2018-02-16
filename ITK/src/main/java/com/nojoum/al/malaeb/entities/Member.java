@@ -8,15 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Member {
 @Id @GeneratedValue
 private Long memberID ;
+@NotEmpty @Size(min=3,max=15)
 private String memberFNAME;
+@NotEmpty @Size(min=3,max=15)
 private String memberSNAME;
+@NotEmpty @Email(message="email non valide")
 private String memberEMAIL;
 private String memberPWD;
 private String memberADRESSE;
